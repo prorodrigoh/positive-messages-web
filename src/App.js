@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { createContext } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { Layout } from 'antd';
+import MessageList from './components/MessageList';
+import AddMessage from './components/AddMessage';
+
+const { Content } = Layout
+
+export const UserContext = createContext(null); 
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <UserContext.Provider value={{}}>
+      <Layout className='layout'>
+        <Content>
+          <Routes>
+            <Route path='/add' element={<AddMessage />} />
+            <Route path='/messages' element={<MessageList />}/>
+          </Routes>
+        </Content>
+      </Layout>
+    </UserContext.Provider>
   );
 }
 
