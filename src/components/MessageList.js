@@ -11,7 +11,7 @@ export default function MessageList(){
     // fetch the api
     fetch('https://goodvibesrepo-api.web.app/all')
         .then(response => response.json())
-        .then(data => setMessages(data.sort((a,b) => a.createdAt - b.createdAt)))
+        .then(data => setMessages(data.sort((a,b) => b.createdAt - a.createdAt)))
         .catch(err => console.error(err))
     },[])
 
