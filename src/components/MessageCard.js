@@ -13,7 +13,7 @@ export default function MessageCard({quote}) {
                 <Card style={{
                     textAlign: 'center'
                 }} 
-                    title={`Quote: ${quote?.message}`}>
+                    title={`${quote?.message}`}>
                 </Card>
             </Col>
             <Col span={8} />
